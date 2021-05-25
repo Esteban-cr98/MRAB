@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MRAB</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+
+</head>
+<body>
+    <nav class="navbar navbar-dark bg-dark">
+        <a href="#" class="navbar-brand mx-auto">Aplicaciones</a>
+    </nav>
+    
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 mt-4 text-center">
+                <table class="table table-striped">
+                    <tr>
+                        <th>ID</th>
+                        <th>APLICACIÓN</th>
+                        <th>LINK</th>
+                    </tr>
+                    <% for( var i = 0; i < apli.length; i++) { %>
+                        <tr>
+                            <td><%= apli[i].id %></td>
+                            <td><%= apli[i].apli_name%></td>
+                            <td><%= apli[i].link%></td>
+                        </tr>
+                    <%}%>
+                </table>
+            </div>
+    
+            <div class="col-md-6 mt-4 card">
+                <form action="/addapps" method="POST" class="card-body">
+                    <h3 class="card-title">Agregar aplicación</h3>
+                    <div class="form-group">
+                        <input type="text" name="aplis" class="form-control" placeholder="Nueva aplicación">
+                    </div>
+                    <div class="form-group">
+                        <input type="text" name="link" class="form-control" placeholder="Link">
+                    </div>
+                    <input type="submit" class="btn btn-primary">
+                </form>
+                <form action="/noapps" method="POST" class="card-body">
+                    <h3 class="card-title">Eliminar aplicación</h3>
+                    <div class="form-group">
+                        <input type="text" name="idA" class="form-control" placeholder="Id aplicación a eliminar">
+                    </div>
+                    <input type="submit" class="btn btn-primary" value="Eliminar">
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <form action="/levels" method="GET" class="card-body">
+            <input type="submit" class="btn btn-primary" value="Niveles">
+        </form>
+        <form action="/" method="GET" class="card-body">
+            <input type="submit" class="btn btn-primary" value="Servicios">
+        </form>
+    </div>
+
+
+
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 mt-4 text-center">
+                <table class="table table-striped">
+                    <tr>
+                        <th>ID NIVEL</th>
+                        <th>ID APLICACIÓN</th>
+                    </tr>
+                    <% for( var i = 0; i < apliNiv.length; i++) { %>
+                        <tr>
+                            <td><%= apliNiv[i].id_lvl%></td>
+                            <td><%= apliNiv[i].id_apli%></td>
+                        </tr>
+                    <%}%>
+                </table>
+            </div>
+    
+            <div class="col-md-6 mt-4 card">
+                <form action="/addids" method="POST" class="card-body">
+                    <h3 class="card-title">Agregar relaciones</h3>
+                    <div class="form-group">
+                        <input type="text" name="idnivs" class="form-control" placeholder="Id nivel">
+                    </div>
+                    <div class="form-group">
+                        <input type="text" name="idapps" class="form-control" placeholder="Id aplicación">
+                    </div>
+                    <input type="submit" class="btn btn-primary">
+                </form>
+                <form action="/noids" method="POST" class="card-body">
+                    <h3 class="card-title">Eliminar relación</h3>
+                    <div class="form-group">
+                        <input type="text" name="idni" class="form-control" placeholder="Id nivel a eliminar">
+                    </div>
+                    <div class="form-group">
+                        <input type="text" name="idap" class="form-control" placeholder="Id aplicacion a eliminar">
+                    </div>
+                    <input type="submit" class="btn btn-primary" value="Eliminar">
+                </form>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 mt-4 text-center">
+                <table class="table table-striped">
+                    <tr>
+                        <th>ID</th>
+                        <th>APLICACIÓN OBJETIVO</th>
+                        <th>LINK</th>
+                    </tr>
+                    <% for( var i = 0; i < apliobj.length; i++) { %>
+                        <tr>
+                            <td><%= apliobj[i].id %></td>
+                            <td><%= apliobj[i].apli_name%></td>
+                            <td><%= apliobj[i].link%></td>
+                        </tr>
+                    <%}%>
+                </table>
+            </div>
+    
+            <div class="col-md-6 mt-4 card">
+                <form action="/addappsobj" method="POST" class="card-body">
+                    <h3 class="card-title">Agregar aplicación objetivo</h3>
+                    <div class="form-group">
+                        <input type="text" name="aplis" class="form-control" placeholder="Nueva aplicación">
+                    </div>
+                    <div class="form-group">
+                        <input type="text" name="link" class="form-control" placeholder="Link">
+                    </div>
+                    <input type="submit" class="btn btn-primary">
+                </form>
+                <form action="/noappsobj" method="POST" class="card-body">
+                    <h3 class="card-title">Eliminar aplicación objetivo</h3>
+                    <div class="form-group">
+                        <input type="text" name="idA" class="form-control" placeholder="Id aplicación a eliminar">
+                    </div>
+                    <input type="submit" class="btn btn-primary" value="Eliminar">
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 mt-4 text-center">
+                <table class="table table-striped">
+                    <tr>
+                        <th>ID NIVEL</th>
+                        <th>ID APLICACIÓN OBJETIVO</th>
+                    </tr>
+                    <% for( var i = 0; i < apliNivobj.length; i++) { %>
+                        <tr>
+                            <td><%= apliNivobj[i].id_lvl%></td>
+                            <td><%= apliNivobj[i].id_apli%></td>
+                        </tr>
+                    <%}%>
+                </table>
+            </div>
+    
+            <div class="col-md-6 mt-4 card">
+                <form action="/addidsobj" method="POST" class="card-body">
+                    <h3 class="card-title">Agregar relaciones</h3>
+                    <div class="form-group">
+                        <input type="text" name="idnivs" class="form-control" placeholder="Id nivel">
+                    </div>
+                    <div class="form-group">
+                        <input type="text" name="idapps" class="form-control" placeholder="Id aplicación">
+                    </div>
+                    <input type="submit" class="btn btn-primary">
+                </form>
+                <form action="/noidsobj" method="POST" class="card-body">
+                    <h3 class="card-title">Eliminar relación</h3>
+                    <div class="form-group">
+                        <input type="text" name="idni" class="form-control" placeholder="Id nivel a eliminar">
+                    </div>
+                    <div class="form-group">
+                        <input type="text" name="idap" class="form-control" placeholder="Id aplicacion a eliminar">
+                    </div>
+                    <input type="submit" class="btn btn-primary" value="Eliminar">
+                </form>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
