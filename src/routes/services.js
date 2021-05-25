@@ -8,7 +8,6 @@ module.exports = app =>{
     app.get('/', (req, res) => {
         connection.query('SELECT * FROM Servicio', (err, result) =>{
             res.render('services/services', { servicios: result});
-            console.log(result);
         });
     });
 
